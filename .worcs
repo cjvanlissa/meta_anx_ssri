@@ -1,0 +1,10 @@
+worcs_version: 0.1.10
+creator: vanlissa
+entry_point: manuscript/manuscript.Rmd
+data:
+  dat.csv:
+    save_expression: write.csv(x = data, file = filename, row.names = FALSE)
+    load_expression: read.csv(file = filename, stringsAsFactors = TRUE)
+    codebook: codebook_dat.Rmd
+checksums:
+  dat.csv: 35016d146a21da3dccd69d4a21b9dbae

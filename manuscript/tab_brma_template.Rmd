@@ -1,0 +1,23 @@
+```{r tabbrma{{i}}, results = 'asis'}
+p <- samples[{{i}}]
+    tb <- modres[[{{i}}]]$brma
+    tb$format <- as.integer(tb$p == "*")
+    formatStyle(
+      formatRound(
+        datatable(
+          tb,
+          rownames = FALSE,
+          caption = paste0("Bayesian regularized meta-regression coefficients for ", p),
+          options = list(columnDefs = list(list(
+            targets = 7, visible = FALSE
+          )),
+          "pageLength" = nrow(tb))
+        ),
+        columns = c('Estimate', "se", "n_eff", "Rhat"),
+        digits = 2
+      ),
+      "format",
+      target = "row",
+      backgroundColor = styleEqual(c(0, 1), c('gray', 'white'))
+    )
+```

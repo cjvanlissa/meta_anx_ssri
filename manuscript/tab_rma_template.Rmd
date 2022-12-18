@@ -1,0 +1,38 @@
+```{r tabref{{i}}, results = 'asis'}
+  p <- samples[{{i}}]
+tb <- modres[[{{i}}]]$refcat
+    # knitr::kable(tb, caption = paste0("Reference category for each variable for process ", p))
+    datatable(
+          tb,
+          rownames = FALSE,
+          caption = paste0("Reference category for each variable for sample ", p))
+```
+
+```{r tabrma{{i}}, results = 'asis'}
+if(!is.null(modres[[{{i}}]][["rma"]])){
+  p <- samples[{{i}}]
+    tb <- modres[[{{i}}]]$rma
+    tb$format <- as.integer(tb$p < .05)
+    formatStyle(
+      formatRound(
+        datatable(
+          tb,
+          rownames = FALSE,
+          caption = paste0("Meta-regression coefficients for ", p),
+          options = list(columnDefs = list(list(
+            targets = 6, visible = FALSE
+          )),
+          "pageLength" = nrow(tb))
+        ),
+        columns = c('Estimate', 'p', "VIF"),
+        digits = 2
+      ),
+      "format",
+      target = "row",
+      backgroundColor = styleEqual(c(0, 1), c('gray', 'white'))
+    )
+} else {
+  cat("Model for ", samples[{{i}}], " did not converge.")
+}
+
+```
