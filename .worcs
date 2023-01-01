@@ -5,6 +5,6 @@ data:
   dat.csv:
     save_expression: write.csv(x = data, file = filename, row.names = FALSE)
     load_expression: read.csv(file = filename, stringsAsFactors = TRUE)
-    codebook: codebook_dat.Rmd
+    codebook: codebook_dat.rmd
 checksums:
-  dat.csv: 35016d146a21da3dccd69d4a21b9dbae
+  dat.csv: 9f93dad75d6926d6b1786c435f610300

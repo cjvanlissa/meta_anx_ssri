@@ -1,4 +1,4 @@
-Codebook created on 2022-12-18 at 2022-12-18 11:40:38
+Codebook created on 2023-01-01 at 2023-01-01 17:14:20
 ================
 
 A codebook contains documentation and metadata describing the contents,
@@ -6,38 +6,1284 @@ structure, and layout of a data file.
 
 ## Dataset description
 
-The data contains 20 cases and 26 variables.
+The data contains 20 cases and 24 variables.
 
 ## Codebook
 
-| name        | type      |   n | missing | unique |  mean | median |  mode | mode_value                                   |    sd |    v |  min |    max |  range |  skew | skew_2se |  kurt | kurt_2se |
-|:------------|:----------|----:|--------:|-------:|------:|-------:|------:|:---------------------------------------------|------:|-----:|-----:|-------:|-------:|------:|---------:|------:|---------:|
-| study       | character |  20 |    0.00 |     21 |       |        |  1.00 | Brown 1998_Citalopram_10_Acute_Mouse_Healthy |       | 0.95 |      |        |        |       |          |       |          |
-| article     | character |  20 |    0.00 |     21 |       |        |  1.00 | Brown 1998                                   |       | 0.95 |      |        |        |       |          |       |          |
-| type        | factor    |   5 |    0.75 |      5 |       |        | 15.00 |                                              |       | 0.72 |      |        |        |       |          |       |          |
-| mexp        | numeric   |  20 |    0.00 |     20 | 66.67 |  36.55 | 36.55 |                                              | 79.74 |      | 5.70 | 280.40 | 274.70 |  1.42 |     1.39 |  0.68 |     0.34 |
-| sdexp       | numeric   |  20 |    0.00 |     19 |  7.19 |   1.45 |  1.45 |                                              | 11.71 |      | 0.10 |  40.30 |  40.20 |  1.74 |     1.70 |  1.81 |     0.91 |
-| nexp        | integer   |  20 |    0.00 |      8 | 10.50 |  10.00 | 10.00 |                                              |  2.59 |      | 6.00 |  15.00 |   9.00 |  0.36 |     0.35 | -0.83 |    -0.42 |
-| mcon        | numeric   |  20 |    0.00 |     20 | 68.50 |  36.70 | 36.70 |                                              | 84.87 |      | 4.70 | 285.90 | 281.20 |  1.41 |     1.38 |  0.52 |     0.26 |
-| sdcon       | numeric   |  20 |    0.00 |     17 |  6.96 |   1.25 |  1.25 |                                              | 11.31 |      | 0.10 |  37.60 |  37.50 |  1.79 |     1.75 |  1.98 |     1.00 |
-| ncon        | integer   |  20 |    0.00 |      6 | 10.80 |  10.00 | 10.00 |                                              |  2.44 |      | 8.00 |  15.00 |   7.00 |  0.41 |     0.40 | -1.17 |    -0.59 |
-| ssri        | factor    |  20 |    0.00 |      7 |       |        |  6.00 | Fluoxetine                                   |       | 0.78 |      |        |        |       |          |       |          |
-| frequency   | factor    |  20 |    0.00 |      4 |       |        | 12.00 | Acute                                        |       | 0.54 |      |        |        |       |          |       |          |
-| disease     | factor    |  20 |    0.00 |      4 |       |        | 12.00 | Healthy                                      |       | 0.52 |      |        |        |       |          |       |          |
-| species     | factor    |  20 |    0.00 |      3 |       |        | 12.00 | Rat                                          |       | 0.48 |      |        |        |       |          |       |          |
-| sex         | factor    |  20 |    0.00 |      4 |       |        | 10.00 | Male                                         |       | 0.62 |      |        |        |       |          |       |          |
-| dose        | numeric   |  20 |    0.00 |      6 | 11.65 |  10.00 | 10.00 |                                              |  6.38 |      | 5.00 |  30.00 |  25.00 |  1.14 |     1.11 |  1.02 |     0.51 |
-| hed         | numeric   |  20 |    0.00 |      8 |  1.54 |   1.01 |  1.01 |                                              |  1.13 |      | 0.41 |   4.83 |   4.42 |  1.43 |     1.40 |  1.20 |     0.61 |
-| pretested   | integer   |  20 |    0.00 |      2 |  0.20 |   0.00 |  0.00 |                                              |  0.41 |      | 0.00 |   1.00 |   1.00 |  1.39 |     1.36 | -0.07 |    -0.03 |
-| sensitivity | integer   |  20 |    0.00 |      2 |  0.05 |   0.00 |  0.00 |                                              |  0.22 |      | 0.00 |   1.00 |   1.00 |  3.82 |     3.73 | 13.29 |     6.70 |
-| test        | factor    |  20 |    0.00 |      5 |       |        |  5.00 | EPM                                          |       | 0.75 |      |        |        |       |          |       |          |
-| semexp      | numeric   |   5 |    0.75 |      4 |  0.10 |   0.10 |  0.10 |                                              |  0.07 |      | 0.00 |   0.20 |   0.20 |  0.00 |     0.00 | -1.40 |    -0.35 |
-| mdexp       | numeric   |   5 |    0.75 |      5 |  1.20 |   1.20 |  1.20 |                                              |  0.19 |      | 0.90 |   1.40 |   0.50 | -0.55 |    -0.30 | -1.40 |    -0.35 |
-| semcon      | numeric   |   5 |    0.75 |      4 |  0.12 |   0.10 |  0.10 |                                              |  0.08 |      | 0.00 |   0.20 |   0.20 | -0.25 |    -0.13 | -1.82 |    -0.45 |
-| mdcon       | numeric   |   5 |    0.75 |      6 |  1.38 |   1.40 |  1.40 |                                              |  0.33 |      | 0.90 |   1.80 |   0.90 | -0.20 |    -0.11 | -1.52 |    -0.38 |
-| group       | integer   |   5 |    0.75 |      3 |  0.40 |   0.00 |  0.00 |                                              |  0.55 |      | 0.00 |   1.00 |   1.00 |  0.29 |     0.16 | -2.25 |    -0.56 |
-| outcome     | factor    |   5 |    0.75 |      3 |       |        | 15.00 |                                              |       | 0.48 |      |        |        |       |          |       |          |
-| usv         | factor    |   5 |    0.75 |      4 |       |        | 15.00 |                                              |       | 0.64 |      |        |        |       |          |       |          |
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+type
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+missing
+</th>
+<th style="text-align:right;">
+unique
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+median
+</th>
+<th style="text-align:right;">
+mode
+</th>
+<th style="text-align:left;">
+mode_value
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+v
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+range
+</th>
+<th style="text-align:right;">
+skew
+</th>
+<th style="text-align:right;">
+skew_2se
+</th>
+<th style="text-align:right;">
+kurt
+</th>
+<th style="text-align:right;">
+kurt_2se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+study
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+Brown 1998_Citalopram_10_Acute_Mouse_Healthy
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+article
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+Brown 1998
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mexp
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+57.63
+</td>
+<td style="text-align:right;">
+17.35
+</td>
+<td style="text-align:right;">
+17.35
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+84.71
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+<td style="text-align:right;">
+280.40
+</td>
+<td style="text-align:right;">
+279.50
+</td>
+<td style="text-align:right;">
+1.39
+</td>
+<td style="text-align:right;">
+1.35
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sdexp
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+7.19
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:right;">
+1.45
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+11.71
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+40.30
+</td>
+<td style="text-align:right;">
+40.20
+</td>
+<td style="text-align:right;">
+1.74
+</td>
+<td style="text-align:right;">
+1.70
+</td>
+<td style="text-align:right;">
+1.81
+</td>
+<td style="text-align:right;">
+0.91
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nexp
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+10.50
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+2.59
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+15.00
+</td>
+<td style="text-align:right;">
+9.00
+</td>
+<td style="text-align:right;">
+0.36
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:right;">
+-0.83
+</td>
+<td style="text-align:right;">
+-0.42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mcon
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+59.49
+</td>
+<td style="text-align:right;">
+15.75
+</td>
+<td style="text-align:right;">
+15.75
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+89.71
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+<td style="text-align:right;">
+285.90
+</td>
+<td style="text-align:right;">
+285.00
+</td>
+<td style="text-align:right;">
+1.39
+</td>
+<td style="text-align:right;">
+1.36
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sdcon
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+6.96
+</td>
+<td style="text-align:right;">
+1.25
+</td>
+<td style="text-align:right;">
+1.25
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+11.31
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+37.60
+</td>
+<td style="text-align:right;">
+37.50
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+<td style="text-align:right;">
+1.75
+</td>
+<td style="text-align:right;">
+1.98
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ncon
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+10.80
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+2.44
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+8.00
+</td>
+<td style="text-align:right;">
+15.00
+</td>
+<td style="text-align:right;">
+7.00
+</td>
+<td style="text-align:right;">
+0.41
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+<td style="text-align:right;">
+-1.17
+</td>
+<td style="text-align:right;">
+-0.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ssri
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:left;">
+Fluoxetine
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.78
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+frequency
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+12.00
+</td>
+<td style="text-align:left;">
+Acute
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.54
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disease
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+12.00
+</td>
+<td style="text-align:left;">
+Healthy
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.52
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+species
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+12.00
+</td>
+<td style="text-align:left;">
+Rat
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.48
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sex
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.62
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dose
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+11.65
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+6.38
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+5.00
+</td>
+<td style="text-align:right;">
+30.00
+</td>
+<td style="text-align:right;">
+25.00
+</td>
+<td style="text-align:right;">
+1.14
+</td>
+<td style="text-align:right;">
+1.11
+</td>
+<td style="text-align:right;">
+1.02
+</td>
+<td style="text-align:right;">
+0.51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hed
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1.54
+</td>
+<td style="text-align:right;">
+1.01
+</td>
+<td style="text-align:right;">
+1.01
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+1.13
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.41
+</td>
+<td style="text-align:right;">
+4.83
+</td>
+<td style="text-align:right;">
+4.42
+</td>
+<td style="text-align:right;">
+1.43
+</td>
+<td style="text-align:right;">
+1.40
+</td>
+<td style="text-align:right;">
+1.20
+</td>
+<td style="text-align:right;">
+0.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pretested
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.41
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+1.39
+</td>
+<td style="text-align:right;">
+1.36
+</td>
+<td style="text-align:right;">
+-0.07
+</td>
+<td style="text-align:right;">
+-0.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sensitivity
+</td>
+<td style="text-align:left;">
+integer
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+3.82
+</td>
+<td style="text-align:right;">
+3.73
+</td>
+<td style="text-align:right;">
+13.29
+</td>
+<td style="text-align:right;">
+6.70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+test
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+5.00
+</td>
+<td style="text-align:left;">
+EPM
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+37.36
+</td>
+<td style="text-align:right;">
+37.50
+</td>
+<td style="text-align:right;">
+37.50
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+36.30
+</td>
+<td style="text-align:right;">
+38.20
+</td>
+<td style="text-align:right;">
+1.90
+</td>
+<td style="text-align:right;">
+-0.20
+</td>
+<td style="text-align:right;">
+-0.11
+</td>
+<td style="text-align:right;">
+-2.02
+</td>
+<td style="text-align:right;">
+-0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+semexp
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.07
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+-1.40
+</td>
+<td style="text-align:right;">
+-0.35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+37.40
+</td>
+<td style="text-align:right;">
+37.30
+</td>
+<td style="text-align:right;">
+37.30
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+36.40
+</td>
+<td style="text-align:right;">
+38.20
+</td>
+<td style="text-align:right;">
+1.80
+</td>
+<td style="text-align:right;">
+-0.10
+</td>
+<td style="text-align:right;">
+-0.05
+</td>
+<td style="text-align:right;">
+-1.99
+</td>
+<td style="text-align:right;">
+-0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+semcon
+</td>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+-0.25
+</td>
+<td style="text-align:right;">
+-0.13
+</td>
+<td style="text-align:right;">
+-1.82
+</td>
+<td style="text-align:right;">
+-0.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sih_test_type
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+15.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.48
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+usv_test_type
+</td>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+15.00
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+</tbody>
+</table>
 
 ### Legend
 

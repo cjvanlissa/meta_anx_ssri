@@ -13,8 +13,8 @@ dat <- lapply(s, function(tst){
   tmp <- as.data.frame(readxl::read_xlsx(path = f, sheet = tst))
   names(tmp) <- tolower(names(tmp))
   tmp$test <- tst
-  renam <- c("baseline temparature experimental group" = "mean experimental group",
-             "baseline temperature control group" = "mean control group"
+  renam <- c("mean difference experimental group" = "mean experimental group",
+             "mean difference control group" = "mean control group"
     )
   if(any(names(renam) %in% names(tmp))  ){
     names(tmp)[which(names(tmp) %in% names(renam))] <- renam[names(tmp)[which(names(tmp) %in% names(renam))]]
@@ -27,6 +27,8 @@ dat <- tidySEM:::bind_list(dat)
 rename_vars <- read.csv("rename_variables.csv", stringsAsFactors = FALSE)
 names(dat) <- rename_vars$new[match(names(dat), rename_vars$orig)]
 
+# Remove redundant moderators
+dat[c('type', 'outcome')] <- NULL
 
 # Recode type
 dat$nexp <- as.integer(dat$nexp)
@@ -34,10 +36,11 @@ dat$ncon <- as.integer(dat$ncon)
 
 # Rename factor levels
 rename_levels <- readxl::read_xlsx("20221202 Rename Categories.xlsx")
+rename_levels <- readxl::read_xlsx("20221222 Rename Categories Meta-Analysis.xlsx")
 
-cats <- c("type", "ssri", "frequency", "disease",
-  "species", "sex", "pretested", "sensitivity", "test", "group",
-  "outcome", "usv")
+cats <- c("ssri", "frequency", "disease",
+  "species", "sex", "pretested", "sensitivity", "test", "sih_test_type",
+  "usv_test_type")
 cats <- cats[sapply(cats, function(c){
   any(dat[[c]] %in% rename_levels$Original)
 })]
@@ -46,7 +49,7 @@ for(c in cats){
 }
 
 # Recode (miscoded) categorical variables
-dat$group <- as.integer(dat$group == "Group")
+datsih_test_type <- as.integer(dat$sih_test_type == "Group")
 dat$pretested <- as.integer(dat$pretested == "Yes")
 dat$sensitivity <- as.integer(!is.na(dat$sensitivity))
 dat$frequency[grepl("^chronic", dat$frequency, ignore.case = TRUE)] <- "Chronic"
@@ -57,9 +60,9 @@ dat$disease[grepl("^ucms", dat$disease, ignore.case = TRUE)] <- "Stress"
 
 dat$frequency[grepl("^subchronic", dat$frequency, ignore.case = TRUE)] <- "Subchronic"
 
-cats <- c("type", "ssri", "frequency", "disease",
-          "species", "sex", "pretested", "sensitivity", "test", "group",
-          "outcome", "usv")
+cats <- c("ssri", "frequency", "disease",
+          "species", "sex", "pretested", "sensitivity", "test",
+          "sih_test_type", "usv_test_type")
 cats <- cats[sapply(dat[cats], inherits, what = "character")]
 dat[cats] <- lapply(dat[cats], factor)
 

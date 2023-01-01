@@ -1,21 +1,21 @@
-"study","article","type","mexp","sdexp","nexp","mcon","sdcon","ncon","ssri","frequency","disease","species","sex","dose","hed","pretested","sensitivity","test","semexp","mdexp","semcon","mdcon","group","outcome","usv"
-"Brown 2001_Fluoxetine_30_chronic [daily, 14x]_Rat_Healthy_%EOA","Brown 2001","%EOA",20,3.2,10,15.3,2.8,10,"Fluoxetine","Chronic","Healthy","Rat","Male",30,4.83,0,0,"EPM",NA,NA,NA,NA,NA,NA,NA
-"Johnson 2005_Citalopram_10_Chronic [daily, 21x]_Mouse_Healthy_%EOA","Johnson 2005","%EOA",22.4,1.1,15,18.6,1.3,15,"Citalopram","Chronic","Healthy","Mouse","Male",10,0.81,0,0,"EPM",NA,NA,NA,NA,NA,NA,NA
-"Smith 1999_Fluoxetine_15_Acute_Rat_Healthy_%TOA","Smith 1999","%TOA",6.5,2.3,8,4.7,0.9,8,"Fluoxetine","Acute","Healthy","Rat","Female",15,2.42,1,0,"EPM",NA,NA,NA,NA,NA,NA,NA
-"Williams 2003A_Escitalopram_5_Subchronic [daily, 5x}_Rat_CUMS [daily, 10x]_TOA","Williams 2003A","TOA",78.2,10.5,9,60.3,8.7,9,"Escitalopram","Subchronic","Stress","Rat","Mix",5,0.81,0,1,"EPM",NA,NA,NA,NA,NA,NA,NA
-"Williams 2003B_Sertraline_10_Acute_Mouse_Healthy_EOA","Williams 2003B","EOA",5.7,0.8,7,4.8,1.2,8,"Sertraline","Acute","Healthy","Mouse","Male",10,0.81,0,0,"EPM",NA,NA,NA,NA,NA,NA,NA
-"Brown 2004_Fluoxetine_20_Acute_Rat_Healthy","Brown 2004",NA,14.7,1.2,10,16.2,1.1,10,"Fluoxetine","Acute","Healthy","Rat","Male",20,3.23,1,0,"MB",NA,NA,NA,NA,NA,NA,NA
-"Johnson 2010_Paroxetine_5_Acute_Rat_Healthy","Johnson 2010",NA,13.5,0.9,12,14.1,1,12,"Paroxetine","Acute","Healthy","Rat","Male",5,0.81,0,0,"MB",NA,NA,NA,NA,NA,NA,NA
-"Jones 2003_Citalopram_10_Acute_Rat_Healthy","Jones 2003",NA,25.1,1.7,6,28.3,3.1,8,"Citalopram","Acute","Healthy","Rat","Mix",10,1.61,0,0,"MB",NA,NA,NA,NA,NA,NA,NA
-"Smith 2012_Fluvoxamine_15_Chronic [daily, 7x]_Mouse_Healthy","Smith 2012",NA,8.9,0.5,9,9.6,0.9,9,"Fluvoxamine","Chronic","Healthy","Mouse","Female",15,1.22,0,0,"MB",NA,NA,NA,NA,NA,NA,NA
-"Williams 2018_Paroxetine_8_Chronic [daily, 7x]_Rat_UCMS [daily 14x]","Williams 2018",NA,20.6,2.1,8,21.9,2.5,8,"Paroxetine","Chronic","Stress","Rat","Female",8,1.29,0,0,"MB",NA,NA,NA,NA,NA,NA,NA
-"Brown 2002_Fluvoxamine_10_Acute_Mouse_Acute stress","Brown 2002",NA,38.2,0.2,10,38.1,0.3,10,"Fluvoxamine","Acute","Stress","Mouse","Male",10,0.81,0,0,"SIH",0.1,1.2,0.2,1.8,1,NA,NA
-"Johnson 2014_Citalopram_10_Acute_Mouse_Acute stress","Johnson 2014",NA,36.3,0.4,13,36.4,0.3,13,"Citalopram","Acute","Stress","Mouse","Female",10,0.81,0,0,"SIH",0.2,1.4,0.1,1.5,0,NA,NA
-"Jones 1997_Sertraline_15_Chronic [daily, 10x]_Rat_Acute stress","Jones 1997",NA,37.5,0.3,12,37.3,0.2,12,"Sertraline","Chronic","Stress","Rat","Male",15,2.42,0,0,"SIH",0.1,1.2,0,1.4,0,NA,NA
-"Smith 2011_Paroxetine_5_Acute_Rat_Acute stress","Smith 2011",NA,38,0.1,10,38.2,0.2,12,"Paroxetine","Acute","Stress","Rat","Male",5,0.81,0,0,"SIH",0.1,1.3,0.1,0.9,0,NA,NA
-"Williams 2021_Fluoxetine_5_Chronic [daily, 10x]_Rat_Acute stress","Williams 2021",NA,36.8,0.2,15,37,0.1,15,"Fluoxetine","Chronic","Stress","Rat","Mix",5,0.81,0,0,"SIH",0,0.9,0.2,1.3,1,NA,NA
-"Brown 1998_Citalopram_10_Acute_Mouse_Healthy","Brown 1998",NA,150.6,40.3,12,160.3,37.6,12,"Citalopram","Acute","Healthy","Mouse","Female",10,0.81,0,0,"USV",NA,NA,NA,NA,NA,"Duration","Separation-induced"
-"Johnson 2003_Paroxetine_10_Acute_Rat_Healthy","Johnson 2003",NA,210.3,20.6,10,208.5,15.9,10,"Paroxetine","Acute","Healthy","Rat","Mix",10,1.61,1,0,"USV",NA,NA,NA,NA,NA,"Duration","Separation-induced"
-"Jones 2008_Citalopram_15_Acute_Mouse_Healthy","Jones 2008",NA,280.4,34.5,9,285.9,36.1,8,"Citalopram","Acute","Healthy","Mouse","Mix",15,1.22,1,0,"USV",NA,NA,NA,NA,NA,"Duration","Shock-induced"
-"Smith 2017_Fluoxetine_5_Acute_Mouse_Healthy","Smith 2017",NA,202.4,12.6,10,240.6,15,12,"Fluoxetine","Acute","Healthy","Mouse","Male",5,0.41,0,0,"USV",NA,NA,NA,NA,NA,"Number","Shock-induced"
-"Williams 2000_Fluoxetine_20_Subchronic [daily, 2x]_Rat_GMO","Williams 2000",NA,87.3,10.3,15,93.9,9.9,15,"Fluoxetine","Subchronic","GMO","Rat","Male",20,3.23,0,0,"USV",NA,NA,NA,NA,NA,"Number","Stress-induced"
+"study","article","mexp","sdexp","nexp","mcon","sdcon","ncon","ssri","frequency","disease","species","sex","dose","hed","pretested","sensitivity","test","NA","semexp","NA","semcon","sih_test_type","usv_test_type"
+"Brown 2001_Fluoxetine_30_chronic [daily, 14x]_Rat_Healthy_%EOA","Brown 2001",20,3.2,10,15.3,2.8,10,"Fluoxetine","Chronic","Healthy","Rat","Male",30,4.83,0,0,"EPM",NA,NA,NA,NA,NA,NA
+"Johnson 2005_Citalopram_10_Chronic [daily, 21x]_Mouse_Healthy_%EOA","Johnson 2005",22.4,1.1,15,18.6,1.3,15,"Citalopram","Chronic","Healthy","Mouse","Male",10,0.81,0,0,"EPM",NA,NA,NA,NA,NA,NA
+"Smith 1999_Fluoxetine_15_Acute_Rat_Healthy_%TOA","Smith 1999",6.5,2.3,8,4.7,0.9,8,"Fluoxetine","Acute","Healthy","Rat","Female",15,2.42,1,0,"EPM",NA,NA,NA,NA,NA,NA
+"Williams 2003A_Escitalopram_5_Subchronic [daily, 5x}_Rat_CUMS [daily, 10x]_TOA","Williams 2003A",78.2,10.5,9,60.3,8.7,9,"Escitalopram","Subchronic","Stress","Rat","Mix",5,0.81,0,1,"EPM",NA,NA,NA,NA,NA,NA
+"Williams 2003B_Sertraline_10_Acute_Mouse_Healthy_EOA","Williams 2003B",5.7,0.8,7,4.8,1.2,8,"Sertraline","Acute","Healthy","Mouse","Male",10,0.81,0,0,"EPM",NA,NA,NA,NA,NA,NA
+"Brown 2004_Fluoxetine_20_Acute_Rat_Healthy","Brown 2004",14.7,1.2,10,16.2,1.1,10,"Fluoxetine","Acute","Healthy","Rat","Male",20,3.23,1,0,"MB",NA,NA,NA,NA,NA,NA
+"Johnson 2010_Paroxetine_5_Acute_Rat_Healthy","Johnson 2010",13.5,0.9,12,14.1,1,12,"Paroxetine","Acute","Healthy","Rat","Male",5,0.81,0,0,"MB",NA,NA,NA,NA,NA,NA
+"Jones 2003_Citalopram_10_Acute_Rat_Healthy","Jones 2003",25.1,1.7,6,28.3,3.1,8,"Citalopram","Acute","Healthy","Rat","Mix",10,1.61,0,0,"MB",NA,NA,NA,NA,NA,NA
+"Smith 2012_Fluvoxamine_15_Chronic [daily, 7x]_Mouse_Healthy","Smith 2012",8.9,0.5,9,9.6,0.9,9,"Fluvoxamine","Chronic","Healthy","Mouse","Female",15,1.22,0,0,"MB",NA,NA,NA,NA,NA,NA
+"Williams 2018_Paroxetine_8_Chronic [daily, 7x]_Rat_UCMS [daily 14x]","Williams 2018",20.6,2.1,8,21.9,2.5,8,"Paroxetine","Chronic","Stress","Rat","Female",8,1.29,0,0,"MB",NA,NA,NA,NA,NA,NA
+"Brown 2002_Fluvoxamine_10_Acute_Mouse_Acute stress","Brown 2002",1.2,0.2,10,1.8,0.3,10,"Fluvoxamine","Acute","Stress","Mouse","Male",10,0.81,0,0,"SIH",38.2,0.1,38.1,0.2,"Group",NA
+"Johnson 2014_Citalopram_10_Acute_Mouse_Acute stress","Johnson 2014",1.4,0.4,13,1.5,0.3,13,"Citalopram","Acute","Stress","Mouse","Female",10,0.81,0,0,"SIH",36.3,0.2,36.4,0.1,"Individual",NA
+"Jones 1997_Sertraline_15_Chronic [daily, 10x]_Rat_Acute stress","Jones 1997",1.2,0.3,12,1.4,0.2,12,"Sertraline","Chronic","Stress","Rat","Male",15,2.42,0,0,"SIH",37.5,0.1,37.3,0,"Individual",NA
+"Smith 2011_Paroxetine_5_Acute_Rat_Acute stress","Smith 2011",1.3,0.1,10,0.9,0.2,12,"Paroxetine","Acute","Stress","Rat","Male",5,0.81,0,0,"SIH",38,0.1,38.2,0.1,"Individual",NA
+"Williams 2021_Fluoxetine_5_Chronic [daily, 10x]_Rat_Acute stress","Williams 2021",0.9,0.2,15,1.3,0.1,15,"Fluoxetine","Chronic","Stress","Rat","Mix",5,0.81,0,0,"SIH",36.8,0,37,0.2,"Group",NA
+"Brown 1998_Citalopram_10_Acute_Mouse_Healthy","Brown 1998",150.6,40.3,12,160.3,37.6,12,"Citalopram","Acute","Healthy","Mouse","Female",10,0.81,0,0,"USV",NA,NA,NA,NA,NA,"Separation-induced"
+"Johnson 2003_Paroxetine_10_Acute_Rat_Healthy","Johnson 2003",210.3,20.6,10,208.5,15.9,10,"Paroxetine","Acute","Healthy","Rat","Mix",10,1.61,1,0,"USV",NA,NA,NA,NA,NA,"Separation-induced"
+"Jones 2008_Citalopram_15_Acute_Mouse_Healthy","Jones 2008",280.4,34.5,9,285.9,36.1,8,"Citalopram","Acute","Healthy","Mouse","Mix",15,1.22,1,0,"USV",NA,NA,NA,NA,NA,"Shock-induced"
+"Smith 2017_Fluoxetine_5_Acute_Mouse_Healthy","Smith 2017",202.4,12.6,10,240.6,15,12,"Fluoxetine","Acute","Healthy","Mouse","Male",5,0.41,0,0,"USV",NA,NA,NA,NA,NA,"Shock-induced"
+"Williams 2000_Fluoxetine_20_Subchronic [daily, 2x]_Rat_GMO","Williams 2000",87.3,10.3,15,93.9,9.9,15,"Fluoxetine","Subchronic","GMO","Rat","Male",20,3.23,0,0,"USV",NA,NA,NA,NA,NA,"Stress-induced"

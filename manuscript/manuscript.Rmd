@@ -19,7 +19,6 @@ run_everything = TRUE
 sensitivity = FALSE
 load_data()
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
-
 ```
 
 # Reproducibility
@@ -67,8 +66,9 @@ saveRDS(dat, "dat.RData")
 dat <- readRDS("dat.RData")
 samples <- levels(dat$Sample)
 
-mods <- c("type", "ssri", "frequency", "disease", "species", "sex", "dose", 
-"hed", "pretested", "group", "outcome", "usv")
+mods <- c("ssri", "frequency", "disease", "species", "sex",
+"hed", "pretested", "sih_test_type", "usv_test_type")
+if(!all(mods %in% names(dat))) stop()
 cat <- names(dat)[sapply(dat, inherits, "factor")]
 cat <- cat[cat %in% mods]
 ```
@@ -277,6 +277,7 @@ Therefore, only continuous predictors were standardized in this analysis.
 This may give dummy variables a slight advantage, leading them to become significant sooner than continuous ones.
 
 ```{r, eval = run_everything}
+refcats <- read.csv("../reference_categories.csv", stringsAsFactors = FALSE)
 modres <- lapply(samples, function(p){
   df <- dat[dat$Sample == p, ]
   mods_cont <- mods[!mods %in% cat]
@@ -293,7 +294,10 @@ modres <- lapply(samples, function(p){
     tab <- table(v)
     relevel(v, ref = names(tab)[which.max(tab)])
   })
-  refcat <- data.frame(do.call(rbind,lapply(names(dfmod[catvars]), function(n){c(n, levels(dfmod[[n]])[1])})))
+  # refcat <- data.frame(do.call(rbind,lapply(names(dfmod[catvars]), function(n){c(n, levels(dfmod[[n]])[1])})))
+  refcat <- data.frame(Variable = names(refcats)[-1],
+                       Reference = unlist(refcats[refcats$sample == p, -1]))
+  refcat <- refcat[refcat$Variable %in% names(dfmod[catvars]), ]
   if(nrow(refcat) > 0) names(refcat) <- c("Variable", "Reference")
   completecases <- complete.cases(dfmod)
   modmat <- model.matrix(~., dfmod)
