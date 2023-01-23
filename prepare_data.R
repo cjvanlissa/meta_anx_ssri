@@ -6,8 +6,8 @@
 library(worcs)
 library(tidySEM)
 library(readxl)
-f <- "20220212 SRMA Datasheet Caspar .xlsx"
-s <- readxl::excel_sheets(f)[-1]
+f <- "20230120 SRMA Datasheet Caspar.xlsx"
+s <- readxl::excel_sheets(f)[-c(1:2)] # Sheet 2 now contains reference categories
 
 dat <- lapply(s, function(tst){
   tmp <- as.data.frame(readxl::read_xlsx(path = f, sheet = tst))
@@ -35,8 +35,7 @@ dat$nexp <- as.integer(dat$nexp)
 dat$ncon <- as.integer(dat$ncon)
 
 # Rename factor levels
-rename_levels <- readxl::read_xlsx("20221202 Rename Categories.xlsx")
-rename_levels <- readxl::read_xlsx("20221222 Rename Categories Meta-Analysis.xlsx")
+rename_levels <- readxl::read_xlsx("20230120 Rename Categories Meta-Analysis.xlsx")
 
 cats <- c("ssri", "frequency", "disease",
   "species", "sex", "pretested", "sensitivity", "test", "sih_test_type",
@@ -49,14 +48,15 @@ for(c in cats){
 }
 
 # Recode (miscoded) categorical variables
-datsih_test_type <- as.integer(dat$sih_test_type == "Group")
+dat$sih_test_type <- as.integer(dat$sih_test_type == "Group")
 dat$pretested <- as.integer(dat$pretested == "Yes")
-dat$sensitivity <- as.integer(!is.na(dat$sensitivity))
+#dat$sensitivity <- as.integer(!is.na(dat$sensitivity))
 dat$frequency[grepl("^chronic", dat$frequency, ignore.case = TRUE)] <- "Chronic"
 dat$frequency[grepl("^subchronic", dat$frequency, ignore.case = TRUE)] <- "Subchronic"
 
 dat$disease[grepl("^cums", dat$disease, ignore.case = TRUE)] <- "Stress"
 dat$disease[grepl("^ucms", dat$disease, ignore.case = TRUE)] <- "Stress"
+dat$disease[dat$disease == "STZ-induced Diabetes"] <- "Other"
 
 dat$frequency[grepl("^subchronic", dat$frequency, ignore.case = TRUE)] <- "Subchronic"
 

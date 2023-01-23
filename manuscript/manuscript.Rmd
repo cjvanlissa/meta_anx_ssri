@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Meta-analysis for the Effect of SSRIs on Anxiety"
 output: bookdown::html_document2
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 bibliography: references.bib
@@ -15,7 +15,7 @@ library(tidySEM)
 library(knitr)
 library(metafor)
 library(pema)
-run_everything = TRUE
+run_everything = FALSE
 sensitivity = FALSE
 load_data()
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -59,6 +59,7 @@ dat <- dat[!is.na(dat$yi), ]
 zscores <- scale(dat[["yi"]])
 maxz <- max(abs(zscores))
 if(maxz > 3.3) stop("Potential outlier in Y-space")
+dat <- dat[!abs(zscores) > 3.3, ]
 saveRDS(dat, "dat.RData")
 ```
 
@@ -277,7 +278,13 @@ Therefore, only continuous predictors were standardized in this analysis.
 This may give dummy variables a slight advantage, leading them to become significant sooner than continuous ones.
 
 ```{r, eval = run_everything}
-refcats <- read.csv("../reference_categories.csv", stringsAsFactors = FALSE)
+# refcats <- read.csv("../reference_categories.csv", stringsAsFactors = FALSE)
+# Refcats now provided in different format
+refcats <- readxl::read_xlsx("../20230120 SRMA Datasheet Caspar.xlsx", sheet = 2, skip = 1)
+refcats <- lapply(samples, function(s){
+    refcats[, c(which(names(refcats) == s):(which(names(refcats) == s)+1))]
+})
+names(refcats) <- samples
 modres <- lapply(samples, function(p){
   df <- dat[dat$Sample == p, ]
   mods_cont <- mods[!mods %in% cat]
@@ -289,16 +296,18 @@ modres <- lapply(samples, function(p){
   dfmod <- df[, mods, drop = FALSE]
   
   # Find ref cat
+  # Changed, because reference categories are now provided by researchers
   catvars <- sapply(dfmod, class) == "factor"
-  dfmod[catvars] <- lapply(dfmod[catvars], function(v){
-    tab <- table(v)
-    relevel(v, ref = names(tab)[which.max(tab)])
-  })
-  # refcat <- data.frame(do.call(rbind,lapply(names(dfmod[catvars]), function(n){c(n, levels(dfmod[[n]])[1])})))
-  refcat <- data.frame(Variable = names(refcats)[-1],
-                       Reference = unlist(refcats[refcats$sample == p, -1]))
+  refcat <- as.data.frame(refcats[[p]])
+  names(refcat) <- c("Variable", "Reference")
+  refcat$Variable <- tolower(refcat$Variable)
+
   refcat <- refcat[refcat$Variable %in% names(dfmod[catvars]), ]
-  if(nrow(refcat) > 0) names(refcat) <- c("Variable", "Reference")
+  
+  dfmod[catvars] <- lapply(names(catvars)[catvars], function(c){
+    v <- dfmod[[c]]
+    relevel(v, ref = refcat$Reference[which(refcat$Variable == c)])
+  })
   completecases <- complete.cases(dfmod)
   modmat <- model.matrix(~., dfmod)
   

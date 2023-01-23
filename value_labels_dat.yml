@@ -13,33 +13,47 @@ frequency:
   '3': Subchronic
 disease:
   class: factor
-  '1': GMO
-  '2': Healthy
+  '1': Healthy
+  '2': Other
   '3': Stress
 species:
   class: factor
   '1': Mouse
-  '2': Rat
+  '2': Other
+  '3': Rat
 sex:
   class: factor
-  '1': Female
-  '2': Male
-  '3': Mix
+  '1': Both
+  '2': Female
+  '3': Male
+  '4': NR
+pretested:
+  class: factor
+  '1': 'No'
+  '2': 'Yes'
+sensitivity:
+  class: factor
+  '1': BrdU
+  '2': Clean litter
+  '3': Exercise
+  '4': Handling
+  '5': None
+  '6': Pre-test arena
+  '7': Surgery
 test:
   class: factor
   '1': EPM
   '2': MB
   '3': SIH
   '4': USV
+usv_test_type:
+  class: factor
+  '1': Physical stress induced
+  '2': Separation induced
 sih_test_type:
   class: factor
   '1': Group
   '2': Individual
-usv_test_type:
-  class: factor
-  '1': Separation-induced
-  '2': Shock-induced
-  '3': Stress-induced
 data:
   dat.csv:
     labels: value_labels_dat.yml

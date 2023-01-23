@@ -7,4 +7,4 @@ data:
     load_expression: read.csv(file = filename, stringsAsFactors = TRUE)
     codebook: codebook_dat.rmd
 checksums:
-  dat.csv: 9f93dad75d6926d6b1786c435f610300
+  dat.csv: 56f2050e64a6ca67bc9cdbfeb63c014d
