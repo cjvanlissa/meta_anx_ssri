@@ -15,7 +15,7 @@ library(tidySEM)
 library(knitr)
 library(metafor)
 library(pema)
-run_everything = FALSE
+run_everything = TRUE
 sensitivity = FALSE
 load_data()
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -58,8 +58,8 @@ dat <- dat[!is.na(dat$yi), ]
 
 zscores <- scale(dat[["yi"]])
 maxz <- max(abs(zscores))
-if(maxz > 3.3) stop("Potential outlier in Y-space")
-dat <- dat[!abs(zscores) > 3.3, ]
+#if(maxz > 3.3) stop("Potential outlier in Y-space")
+#dat <- dat[!abs(zscores) > 3.3, ]
 saveRDS(dat, "dat.RData")
 ```
 
@@ -278,11 +278,12 @@ Therefore, only continuous predictors were standardized in this analysis.
 This may give dummy variables a slight advantage, leading them to become significant sooner than continuous ones.
 
 ```{r, eval = run_everything}
-# refcats <- read.csv("../reference_categories.csv", stringsAsFactors = FALSE)
 # Refcats now provided in different format
-refcats <- readxl::read_xlsx("../20230120 SRMA Datasheet Caspar.xlsx", sheet = 2, skip = 1)
+refcats <- read.csv("../reference_categories.csv", stringsAsFactors = FALSE)
 refcats <- lapply(samples, function(s){
-    refcats[, c(which(names(refcats) == s):(which(names(refcats) == s)+1))]
+    out <- refcats[refcats$sample == s, -1]
+    data.frame(Variable = names(out),
+                      Reference = unlist(out))
 })
 names(refcats) <- samples
 modres <- lapply(samples, function(p){
@@ -298,15 +299,11 @@ modres <- lapply(samples, function(p){
   # Find ref cat
   # Changed, because reference categories are now provided by researchers
   catvars <- sapply(dfmod, class) == "factor"
+  catvars <- names(catvars)[catvars]
   refcat <- as.data.frame(refcats[[p]])
-  names(refcat) <- c("Variable", "Reference")
-  refcat$Variable <- tolower(refcat$Variable)
-
-  refcat <- refcat[refcat$Variable %in% names(dfmod[catvars]), ]
-  
-  dfmod[catvars] <- lapply(names(catvars)[catvars], function(c){
+  dfmod[catvars] <- lapply(catvars, function(c){
     v <- dfmod[[c]]
-    relevel(v, ref = refcat$Reference[which(refcat$Variable == c)])
+    relevel(v, ref = refcat$Reference[match(tolower(c), refcat$Variable)])
   })
   completecases <- complete.cases(dfmod)
   modmat <- model.matrix(~., dfmod)
@@ -357,7 +354,7 @@ modres <- lapply(samples, function(p){
   )
   moddat <- cbind(yi = yi_notcentered, vi = df$vi[completecases], std, df_cats)
   moddat$study <- df$id_experiment[completecases]
-  pma <- brma(yi ~., study = "study", data = moddat, standardize = standardize)
+  pma <- brma(yi ~., study = "study", data = moddat, standardize = standardize, iter = 10000)
   saveRDS(pma, paste0("pma_", p, ".RData"))
   sumpma <- data.frame(summary(pma)$coefficients)
   sumpma <- cbind(rownames(sumpma), sumpma)
