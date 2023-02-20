@@ -27,10 +27,6 @@ sex:
   '2': Female
   '3': Male
   '4': NR
-pretested:
-  class: factor
-  '1': 'No'
-  '2': 'Yes'
 sensitivity:
   class: factor
   '1': BrdU
@@ -50,10 +46,6 @@ usv_test_type:
   class: factor
   '1': Physical stress induced
   '2': Separation induced
-sih_test_type:
-  class: factor
-  '1': Group
-  '2': Individual
 data:
   dat.csv:
     labels: value_labels_dat.yml

@@ -55,11 +55,12 @@ dat <- escalc(measure = "SMD",
          data = dat)
 
 dat <- dat[!is.na(dat$yi), ]
-
+dat$yi <- dat$yi * dat$multiplier
+dat[["multiplier"]] <- NULL
 zscores <- scale(dat[["yi"]])
 maxz <- max(abs(zscores))
 #if(maxz > 3.3) stop("Potential outlier in Y-space")
-#dat <- dat[!abs(zscores) > 3.3, ]
+dat <- dat[!abs(zscores) > 3.3, ]
 saveRDS(dat, "dat.RData")
 ```
 

@@ -6,7 +6,7 @@
 library(worcs)
 library(tidySEM)
 library(readxl)
-f <- "20230120 SRMA Datasheet Caspar.xlsx"
+f <- "20230207 SRMA Datasheet Caspar.xlsx"
 s <- readxl::excel_sheets(f)[-c(1:2)] # Sheet 2 now contains reference categories
 
 dat <- lapply(s, function(tst){
@@ -25,7 +25,7 @@ dat <- tidySEM:::bind_list(dat)
 
 # Rename variables
 rename_vars <- read.csv("rename_variables.csv", stringsAsFactors = FALSE)
-names(dat) <- rename_vars$new[match(names(dat), rename_vars$orig)]
+names(dat)[names(dat) %in% rename_vars$orig] <- rename_vars$new[match(names(dat)[names(dat) %in% rename_vars$orig], rename_vars$orig)]
 
 # Remove redundant moderators
 dat[c('type', 'outcome')] <- NULL
