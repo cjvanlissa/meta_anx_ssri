@@ -15,7 +15,7 @@ library(tidySEM)
 library(knitr)
 library(metafor)
 library(pema)
-run_everything = TRUE
+run_everything = FALSE
 sensitivity = FALSE
 load_data()
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -80,6 +80,15 @@ cat <- cat[cat %in% mods]
 ```{r threelev, results="hide", eval = run_everything}
 mlm <- lapply(samples, function(p){
   df <- dat[dat$Sample == p, ]
+  model_pubbias <- rma(df$yi, vi = df$vi)
+  pubbias_selmodel <- metafor::selmodel(model_pubbias, type ="stepfun", steps = c(.05))
+  png(paste0("funnel_", p, ".png"))
+  metafor::funnel(model_pubbias)
+  dev.off()
+  svg(paste0("funnel_", p, ".svg"))
+  metafor::funnel(model_pubbias)
+  dev.off()
+
   pubbias <- regtest(x = df$yi, vi = df$vi)
   #Conduct meta-analyses
   #model.mods <- rma.mv(yi, vi, random = list(~ 1 | id_experiment, ~ 1 | id_es), data=df) 
@@ -146,7 +155,7 @@ pforest <- ggplot(data=df_es)+
   theme_minimal()
 
 ggsave(paste0("threelevel_ma_forest", p, ".png"), pforest, device = "png", height = (nrow(df)+2)*.2)
-res = data.frame(Variance = c("Overall ES", "V between", "V within"),
+res = data.frame(Variance = c("Overall ES", "tau2 between", "tau2 within"),
                  rbind(c(estimate = model.full$b[1,1], ci.lb = model.full$ci.lb, ci.ub = model.full$ci.ub, model.full$pval),
                        c(confints[[1]]$random[1,], aov_table$p[3]),
                        c(confints[[2]]$random[1,], aov_table$p[2])))
@@ -156,7 +165,8 @@ res[[2]][nrow(res)-c(0,1)] <- I2
   list(mod = model.full,
     aov_table = aov_table,
        res = res,
-    pubbias = pubbias)     
+    pubbias = pubbias,
+    pubbias_sel = pubbias_selmodel)     
 })
 names(mlm) <- samples
 saveRDS(mlm, "mlm.RData")
@@ -173,6 +183,7 @@ names(tb) <- c("Parameter", "Estimate", "p", "Sample", "CI")
 write.csv(tb, "tab_threelevel.csv", row.names = FALSE)
 ```
 ```{r, include = FALSE}
+mlm <- readRDS("mlm.RData")
 num_effect_sizes <- table(table(dat$id_experiment))
 ```
 
@@ -182,6 +193,25 @@ num_effect_sizes <- table(table(dat$id_experiment))
 The effect size estimates ranged from `r formatC(min(dat[["yi"]]), digits = 2, format = "f")` to `r formatC(max(dat[["yi"]]), digits = 2, format = "f")` ($M `r report(mean(dat[["yi"]]))`, SD `r report(sd(dat[["yi"]]))`$). 
 
 Several studies reported multiple effect sizes (`r min(as.integer(names(num_effect_sizes))) ` - `r max(as.integer(names(num_effect_sizes)))`, with most reporting 1 effect size).
+
+## Publication bias
+
+We examined publication bias using funnel plots, Egger's test, and selection models, see Iyengar, S., & Greenhouse, J. B. (1988). Selection models and the file drawer problem. Statistical Science, 3(1), 109–117. ⁠https://doi.org/10.1214/ss/1177013012⁠
+
+Note that these methods for detecting publication bias are only valid for random effects models;
+they thus ignore the multilevel structure of the data.
+
+We conducted likelihood ratio tests to examine whether there was evidence that publications with a p-value < .05 were more likely to be published.
+
+```{r, include=TRUE}
+out = NULL
+for (i in samples) {
+  out = c(out, knit_expand('selbias_template.Rmd'))
+}
+```
+
+`r paste(knit(text = out), collapse = '\n')`
+
 
 ## Threelevel Multilevel RMA
 
@@ -206,7 +236,6 @@ Separate meta-analyses were conducted for each of the samples.
 The overall pooled effect sizes were:
 
 ```{r, results = "asis"}
-mlm <- readRDS("mlm.RData")
 tb <- read.csv("tab_threelevel.csv", stringsAsFactors = FALSE)
 datatable(tb, rownames= FALSE, options = list(
               "pageLength" = nrow(tb))) |>

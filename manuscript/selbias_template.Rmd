@@ -1,0 +1,11 @@
+
+### Pub bias {{i}}
+
+According to the selection model, there was `r c("no", "significant")[(mlm[["{{i}}"]][["pubbias_sel"]][["LRTp"]] < .05)+1]` evidence of publication bias, LRT(2) `r report(mlm[["{{i}}"]][["pubbias_sel"]][["LRT"]])`, p `r report(mlm[["{{i}}"]][["pubbias_sel"]][["LRTp"]])`.
+
+Egger's test for funnel plot asymmetry showed `r c("no", "significant")[(mlm[["{{i}}"]][["pubbias"]][["pval"]] < .05)+1]` evidence of publication bias, Z `r report(mlm[["{{i}}"]][["pubbias"]][["zval"]])`, p `r report(mlm[["{{i}}"]][["pubbias"]][["pval"]])`.
+
+
+```{r pubbbias{{i}}}
+knitr::include_graphics("funnel_{{i}}.png")
+```
