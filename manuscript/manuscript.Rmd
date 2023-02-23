@@ -15,7 +15,7 @@ library(tidySEM)
 library(knitr)
 library(metafor)
 library(pema)
-run_everything = FALSE
+run_everything = TRUE
 sensitivity = FALSE
 load_data()
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -127,8 +127,9 @@ confints <- confint(model.full)
 #Write forest plot to file
 xname <- paste0("Hedges' g (", p, ")")
 tmp <- df[order(df$vi, decreasing = TRUE), ]
+tmp$paperlabel <- paste(tmp$paper, tmp$type.of.ssri.and.dose)
 df_es <- data.frame(
-    Study = ordered(tmp$paper, levels = unique(tmp$paper)),
+    Study = ordered(tmp$paperlabel, levels = unique(tmp$paperlabel)),
     y = 1:nrow(tmp),
     es = tmp$yi,
     lb = tmp$yi - 1.96*sqrt(tmp$vi),

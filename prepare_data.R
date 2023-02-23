@@ -6,7 +6,7 @@
 library(worcs)
 library(tidySEM)
 library(readxl)
-f <- "20230207 SRMA Datasheet Caspar.xlsx"
+f <- "20230223 SRMA Datasheet Caspar.xlsx"
 s <- readxl::excel_sheets(f)[-c(1:2)] # Sheet 2 now contains reference categories
 
 dat <- lapply(s, function(tst){
