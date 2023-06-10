@@ -6,5 +6,6 @@ data:
     save_expression: write.csv(x = data, file = filename, row.names = FALSE)
     load_expression: read.csv(file = filename, stringsAsFactors = TRUE)
     codebook: codebook_dat.rmd
+    labels: value_labels_dat.yml
 checksums:
-  dat.csv: e7f95f02b6d6defad517dadfa07acf67
+  dat.csv: 95e213764e8693e47f2544eb7f8b3b91

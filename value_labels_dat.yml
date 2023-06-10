@@ -46,6 +46,3 @@ usv_test_type:
   class: factor
   '1': Physical stress induced
   '2': Separation induced
-data:
-  dat.csv:
-    labels: value_labels_dat.yml
