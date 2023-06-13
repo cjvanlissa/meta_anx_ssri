@@ -127,7 +127,7 @@ confints <- confint(model.full)
 #Write forest plot to file
 xname <- paste0("Hedges' g (", p, ")")
 tmp <- df[order(df$vi, decreasing = TRUE), ]
-tmp$paperlabel <- paste(tmp$paper, tmp$type.of.ssri.and.dose)
+tmp$paperlabel <- paste(tmp$paper, tmp$type_ssri_and_dose)
 df_es <- data.frame(
     Study = ordered(tmp$paperlabel, levels = unique(tmp$paperlabel)),
     y = 1:nrow(tmp),

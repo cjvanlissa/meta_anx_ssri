@@ -1,4 +1,4 @@
-Codebook created on 2023-06-10 at 2023-06-10 08:47:30.390412
+Codebook created on 2023-06-13 at 2023-06-13 16:50:13.514392
 ================
 
 A codebook contains documentation and metadata describing the contents,
@@ -6,7 +6,7 @@ structure, and layout of a data file.
 
 ## Dataset description
 
-The data contains 465 cases and 21 variables.
+The data contains 465 cases and 22 variables.
 
 ## Codebook
 
@@ -147,6 +147,52 @@ Kassai 2012
 </td>
 <td style="text-align:right;">
 0.99
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+type_ssri_and_dose
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+465
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+73.00
+</td>
+<td style="text-align:left;">
+(FLX, 10 mg/kg)
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.95
 </td>
 <td style="text-align:right;">
 </td>
@@ -722,45 +768,53 @@ Male
 hed
 </td>
 <td style="text-align:left;">
-character
+numeric
 </td>
 <td style="text-align:right;">
-465
+445
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+1.19
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+1.23
+</td>
+<td style="text-align:right;">
 </td>
 <td style="text-align:right;">
 0.00
 </td>
 <td style="text-align:right;">
-69
+13.01
 </td>
 <td style="text-align:right;">
+13.01
 </td>
 <td style="text-align:right;">
+3.27
 </td>
 <td style="text-align:right;">
-73.00
-</td>
-<td style="text-align:left;">
-0.81300813008130079
+14.13
 </td>
 <td style="text-align:right;">
+20.65
 </td>
 <td style="text-align:right;">
-0.94
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
+44.71
 </td>
 </tr>
 <tr>

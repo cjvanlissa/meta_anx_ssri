@@ -10,7 +10,7 @@ f <- "20230608 SRMA Datasheet Caspar.xlsx"
 s <- readxl::excel_sheets(f)[-c(1:2)] # Sheet 2 now contains reference categories
 
 dat <- lapply(s, function(tst){
-  tmp <- as.data.frame(readxl::read_xlsx(path = f, sheet = tst))
+  tmp <- as.data.frame(readxl::read_xlsx(path = f, sheet = tst, na = c("", "NA")))
   names(tmp) <- tolower(names(tmp))
   tmp$test <- tst
   renam <- c("mean difference experimental group" = "mean experimental group",
@@ -28,7 +28,7 @@ rename_vars <- read.csv("rename_variables.csv", stringsAsFactors = FALSE)
 names(dat)[names(dat) %in% rename_vars$orig] <- rename_vars$new[match(names(dat)[names(dat) %in% rename_vars$orig], rename_vars$orig)]
 
 # Remove redundant moderators
-dat[c('type', 'outcome', "type of ssri and dose")] <- NULL
+dat[c('type', 'outcome')] <- NULL
 
 # Recode type
 dat$nexp <- as.integer(dat$nexp)
